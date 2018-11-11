@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byType">
+
+    <context:annotation-config/>
+    <bean name="name" class="com.sample.spring.bean.Name" autowire="byName">
+    	<property name="firstName" value="Rukshan"/>
+    	<property name="lastName" value="Kumara"/>
+    </bean>   
+    <bean name="stdName" class="com.sample.spring.bean.Name" autowire="byName">
+    	<property name="firstName" value="Nirmal"/>
+    	<property name="lastName" value="Balasooriya"/>
+    </bean>   
+    <bean name="address1" class="com.sample.spring.bean.Address" autowire="byType">
+    	<property name="line1" value="adress 1 line 1"/>
+    	<property name="line2" value="adress 1 line 2"/>
+    </bean>
+    <bean name="mycountry" class="com.sample.spring.bean.Country">
+    	<property name="cntryName" value="Sri Lanka"/>
+    	<property name="cntryCode" value="LK"/>
+    </bean>  	 
+    <bean name="divi" class="com.sample.spring.bean.Division">
+    	<property name="division" value="Excellent"/>
+    	<property name="divisionId" value="EX"/>
+    </bean>  	 
+
+   <bean name="student" class="com.sample.spring.bean.Student" autowire="constructor">
+	<constructor-arg name="stdid" value="std0001"/>
+	<constructor-arg name="age" value="12"/>
+	<constructor-arg name="division" ref="divi"/>
+   </bean>
+</beans>
